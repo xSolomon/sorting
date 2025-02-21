@@ -8,7 +8,7 @@ def SelectionSortStep( array : list[int], i : int ) -> None:
             current_minimum_index = unsorted_index
     array[i], array[current_minimum_index] = array[current_minimum_index], array[i]
 
-def BubbleSortStep( array ) -> bool:
+def BubbleSortStep( array ):
     ''' Swap elements if current greater than next.
         Tracks whether any swaps occured. '''
     swaps_occured : bool = False
