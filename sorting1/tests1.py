@@ -37,4 +37,13 @@ class BubbleSortStepTests(unittest.TestCase):
                 self.assertTrue(BubbleSortStep(values))
         self.assertEqual(values, [i for i in range(10)])
 
+    def test_on_predefined_array(self) -> None:
+        ''' Expected sorted array after 2 steps. '''
+        values : list[int] = [4, 3, 1, 2]
+        self.assertTrue(BubbleSortStep(values))
+        self.assertEqual(values, [3, 1, 2, 4])
+        self.assertTrue(BubbleSortStep(values))
+        self.assertEqual(values, [1, 2, 3, 4])
+        self.assertFalse(BubbleSortStep(values))
+
 unittest.main()
