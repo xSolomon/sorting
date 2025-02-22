@@ -11,12 +11,12 @@ def SelectionSortStep( array : list[int], i : int ) -> None:
 def BubbleSortStep( array ):
     ''' Swap elements if current greater than next.
         Tracks whether any swaps occured. '''
-    swaps_occured : bool = False
+    swaps_not_occured : bool = True
     for i in range(len(array) - 1):
         if array[i] > array[i + 1]:
             array[i], array[i + 1] = array[i + 1], array[i]
-            swaps_occured = True
-    return swaps_occured
+            swaps_not_occured = False
+    return swaps_not_occured
 
 
 
