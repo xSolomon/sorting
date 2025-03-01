@@ -16,7 +16,13 @@ class ArrayChunkTests(unittest.TestCase):
         ''' Expected correct pivot and changes to array. '''
         values : list[int] = [7, 5, 6, 4, 3, 1, 2]
         results : Tuple[int, list[int]] = (3, [2, 1, 3, 4, 6, 5, 7])
-        self.assertEqual(ArrayChunk(values), results[0])
-        self.assertEqual(values, results[1])
+        with self.subTest():
+            self.assertEqual(ArrayChunk(values), results[0])
+            self.assertEqual(values, results[1])
+        values = [1, 3, 4, 6, 5, 2, 8]
+        results = (5, [1, 3, 4, 2, 5, 6, 8])
+        with self.subTest():
+            self.assertEqual(ArrayChunk(values), results[0])
+            self.assertEqual(values, results[1])
 
 unittest.main()

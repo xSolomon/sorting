@@ -21,8 +21,12 @@ def ArrayChunk(M : list[int]) -> int:
                     M[left_part_index] < M[right_part_index]):
                 return pivot_index
             M[left_part_index], M[right_part_index] = M[right_part_index], M[left_part_index]
+            if M[left_part_index] == pivot:
+                pivot_index = left_part_index
+                continue
+            if M[right_part_index] == pivot:
+                pivot_index = right_part_index
     return None
-
 
 
 
