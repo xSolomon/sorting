@@ -1,15 +1,19 @@
-''' Tests for lesson 6 solution. '''
+''' Tests for lesson 8 solution. '''
 
 import unittest
-from sorting6_1 import QuickSortTailOptimization
+from sorting8_1 import MergeSort
 
-class QuickSortTailOptimizationTests(unittest.TestCase):
-    ''' Tests for QuickSortTailOptimization function. '''
+class KthOrderStatisticsStepTests(unittest.TestCase):
+    ''' Tests for KthOrderStatisticsStepTests function. '''
     def test_on_empty_array(self) -> None:
         ''' Array shouldn't change. '''
         values : list[int] = []
-        QuickSortTailOptimization(values, 0, len(values) - 1)
-        self.assertEqual(values, [])
+        self.assertEqual(MergeSort(values), values)
+
+    def test_on_one_element_array(self) -> None:
+        ''' Array shouldn't change. '''
+        values : list[int] = [9]
+        self.assertEqual(MergeSort(values), values)
 
     def test_on_predefined_arrays(self) -> None:
         ''' Each array should be sorted as the result. '''
@@ -24,7 +28,6 @@ class QuickSortTailOptimizationTests(unittest.TestCase):
         for array in unsorted_arrays:
             sorted_array : list[int] = sorted(array)
             with self.subTest():
-                QuickSortTailOptimization(array, 0 , len(array) - 1)
-                self.assertEqual(array, sorted_array)
+                self.assertEqual(MergeSort(array), sorted_array)
 
 unittest.main()

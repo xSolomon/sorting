@@ -1,4 +1,4 @@
-''' Tests for lesson 5 solution. '''
+''' Tests for lesson 7 solution. '''
 
 import unittest
 from sorting7_1 import KthOrderStatisticsStep
