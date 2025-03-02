@@ -1,7 +1,6 @@
 ''' Tests for lesson 5 solution. '''
 
 import unittest
-from typing import Tuple
 from sorting5_1 import partition, QuickSort
 
 class PartitionTests(unittest.TestCase):
@@ -15,7 +14,7 @@ class PartitionTests(unittest.TestCase):
     def test_on_seven_elements_array(self) -> None:
         ''' Expected correct pivot and changes to array. '''
         values : list[int] = [7, 5, 6, 4, 3, 1, 2]
-        results : Tuple[int, list[int]] = (3, [2, 1, 3, 4, 6, 5, 7])
+        results : tuple[int, list[int]] = (3, [2, 1, 3, 4, 6, 5, 7])
         with self.subTest():
             self.assertEqual(partition(values, 0, len(values) - 1), results[0])
             self.assertEqual(values, results[1])
