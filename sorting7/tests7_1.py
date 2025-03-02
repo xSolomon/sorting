@@ -22,19 +22,17 @@ class KthOrderStatisticsStepTests(unittest.TestCase):
         ''' Each array should be sorted as the result. '''
         values : list[int] = [7, 5, 6, 4, 3, 1, 2]
         for kth_order_statistic, _ in enumerate(values):
-            pivot_index : int = 4
+            pivot_index : int = 3
             new_borders : list[int] = []
             match (kth_order_statistic > pivot_index) - (kth_order_statistic < pivot_index):
                 case -1:
                     new_borders = [0, pivot_index - 1]
-                    break
                 case 0:
                     new_borders = [pivot_index, pivot_index]
-                    break
                 case 1:
                     new_borders = [pivot_index + 1, len(values) - 1]
-                    break
-            with self.subTest():
+            with self.subTest(kth_order_statistics = kth_order_statistic,
+                expected_borders = new_borders):
                 self.assertEqual(KthOrderStatisticsStep(values.copy(), 0 ,
                     len(values) - 1, kth_order_statistic), new_borders)
 

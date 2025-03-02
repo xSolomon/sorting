@@ -3,7 +3,7 @@
 def KthOrderStatisticsStep(Array : list[int], L : int, R : int, k : int) -> list[int]:
     ''' Performs one step for finding Kth order statistics.
         Returns new borders to search in. '''
-    if L < R or not Array:
+    if L > R or not Array:
         return []
     pivot_index : int = None
     search_finished : bool = False
