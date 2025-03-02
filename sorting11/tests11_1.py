@@ -96,7 +96,4 @@ class BinarySearchTests(unittest.TestCase):
                 binary_searh.Step(value_for_search)
                 self.assertEqual(binary_searh.GetResult(), final_status[i])
 
-
-
-
 unittest.main()

@@ -26,9 +26,8 @@ class BinarySearch():
                 self.Right = middle_element_index - 1
             case 1:
                 self.Left = middle_element_index + 1
-        if self.Right >= self.Left:
-            return
-        self._search_result = -1
+        if self.Right < self.Left:
+            self._search_result = -1
 
     def GetResult(self) -> int:
         ''' Returns currect search status, where:
