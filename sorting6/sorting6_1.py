@@ -37,9 +37,9 @@ def QuickSort(array : list[int], recursion_stack : list[tuple[int, int]]) -> Non
     borders : tuple[int, int] = recursion_stack.pop()
     if borders[0] >= borders[1]:
         return QuickSort(array, recursion_stack)
-    pivot : int = partition(array, *borders)
-    recursion_stack.append((borders[0], pivot - 1))
-    recursion_stack.append((pivot + 1, borders[1]))
+    pivot_index : int = partition(array, *borders)
+    recursion_stack.append((borders[0], pivot_index - 1))
+    recursion_stack.append((pivot_index + 1, borders[1]))
     return QuickSort(array, recursion_stack)
 
 def QuickSortTailOptimization(array : list[int], left : int, right : int) -> None:

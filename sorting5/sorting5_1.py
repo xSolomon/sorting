@@ -34,9 +34,9 @@ def QuickSort(array : list[int], left : int, right : int) -> None:
     ''' Quicksort using partition function. '''
     if left >= right:
         return
-    pivot : int = partition(array, left, right)
-    QuickSort(array, left, pivot - 1)
-    QuickSort(array, pivot + 1, right)
+    pivot_index : int = partition(array, left, right)
+    QuickSort(array, left, pivot_index - 1)
+    QuickSort(array, pivot_index + 1, right)
 
 
 
