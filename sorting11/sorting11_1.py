@@ -26,9 +26,9 @@ class BinarySearch():
                 self.Right = middle_element_index - 1
             case 1:
                 self.Left = middle_element_index + 1
-        if self.Left < self.Right:
+        if self.Left + 1 < self.Right:
             return
-        if self.Left == self.Right and self._values[self.Left] == N:
+        if self._values[self.Left] == N or self._values[self.Right] == N:
             self._search_result = 1
             return
         self._search_result = -1

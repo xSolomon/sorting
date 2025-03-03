@@ -96,10 +96,40 @@ class BinarySearchTests(unittest.TestCase):
                 binary_searh.Step(value_for_search)
                 self.assertEqual(binary_searh.GetResult(), final_status)
 
+    def test_search_on_three_element_ary(self) -> None:
+        ''' Each number should take expected number of steps. '''
+        values : list[int] = [1, 2, 3]
+        steps_number : list[int] = [1, 1, 1, 1, 1]
+        final_statuses : list[int] = [-1, 1, 1, 1, -1]
+        for i, final_status in enumerate(final_statuses):
+            value_for_search : int = i
+            binary_searh : BinarySearch = self.prepare_binary_search_on(values)
+            with self.subTest(value = value_for_search):
+                for _ in range(steps_number[i] - 1):
+                    binary_searh.Step(value_for_search)
+                    self.assertEqual(binary_searh.GetResult(), 0)
+                binary_searh.Step(value_for_search)
+                self.assertEqual(binary_searh.GetResult(), final_status)
+
+    def test_search_on_four_element_ary(self) -> None:
+        ''' Each number should take expected number of steps. '''
+        values : list[int] = [1, 2, 3, 4]
+        steps_number : list[int] = [1, 1, 1, 1, 1, 1]
+        final_statuses : list[int] = [-1, 1, 1, 1, 1, -1]
+        for i, final_status in enumerate(final_statuses):
+            value_for_search : int = i
+            binary_searh : BinarySearch = self.prepare_binary_search_on(values)
+            with self.subTest(value = value_for_search):
+                for _ in range(steps_number[i] - 1):
+                    binary_searh.Step(value_for_search)
+                    self.assertEqual(binary_searh.GetResult(), 0)
+                binary_searh.Step(value_for_search)
+                self.assertEqual(binary_searh.GetResult(), final_status)
+
     def test_search_on_five_element_ary(self) -> None:
         ''' Each number should take expected number of steps. '''
         values : list[int] = [1, 2, 3, 4, 5]
-        steps_number : list[int] = [2, 2, 2, 1, 2, 2, 2]
+        steps_number : list[int] = [1, 1, 1, 1, 1, 1, 1]
         final_status : list[int] = [-1, 1, 1, 1, 1, 1, -1]
         for i in range(0, 7):
             value_for_search : int = i
