@@ -1,21 +1,14 @@
 ''' Tests for lesson 12 solution. '''
 
 import unittest
-from sorting12_1 import BinarySearch
+from sorting12_1 import GallopingSearch
 
 class GallopingSearchTests(unittest.TestCase):
     ''' Tests for GallopingSearch function of BinarySearch class. '''
-    def setUp(self) -> None:
-        ''' Test preparations. '''
-        self.binary_searh : BinarySearch = BinarySearch([])
-
-    def tearDown(self) -> None:
-        ''' Aftertest cleanup. '''
-        self.binary_searh = None
 
     def test_on_empty_ary(self) -> None:
         ''' Must return false. '''
-        self.assertFalse(self.binary_searh.GallopingSearch([], 0))
+        self.assertFalse(GallopingSearch([], 0))
 
     def test_on_one_element_ary(self) -> None:
         ''' Expected true when searching for this single element.
@@ -25,7 +18,7 @@ class GallopingSearchTests(unittest.TestCase):
         for search_value in values_to_search:
             expected_result : bool = ary[0] == search_value
             with self.subTest(search_value = search_value):
-                self.assertEqual(self.binary_searh.GallopingSearch(ary, search_value),
+                self.assertEqual(GallopingSearch(ary, search_value),
                     expected_result)
 
     def test_on_seven_element_ary(self) -> None:
@@ -35,7 +28,7 @@ class GallopingSearchTests(unittest.TestCase):
         for search_value in values_to_search:
             expected_result : bool = search_value in ary
             with self.subTest(search_value = search_value):
-                self.assertEqual(self.binary_searh.GallopingSearch(ary, search_value),
+                self.assertEqual(GallopingSearch(ary, search_value),
                     expected_result)
 
 unittest.main()

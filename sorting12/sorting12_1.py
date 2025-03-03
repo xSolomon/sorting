@@ -40,27 +40,27 @@ class BinarySearch():
             -1 = element not found '''
         return self._search_result
 
-    def GallopingSearch(self, ary_sorted_ascending : list[int], search_value : int) -> bool:
-        ''' Performs search with O(log(i)) complexity. '''
-        if len(ary_sorted_ascending) < 1:
-            return False
-        i : int = 1
-        current_index : int = 0
-        while ary_sorted_ascending[current_index] < search_value:
-            i += 1
-            current_index = pow(2, i) - 2
-            if current_index >= len(ary_sorted_ascending):
-                current_index = len(ary_sorted_ascending) - 1
-                i -= 1
-                break
-        if ary_sorted_ascending[current_index] == search_value:
-            return True
-        binary_searh : BinarySearch = BinarySearch(ary_sorted_ascending)
-        binary_searh.Left = pow(2, i - 1) - 1
-        binary_searh.Right = current_index
-        while binary_searh.GetResult() == 0:
-            binary_searh.Step(search_value)
-        return binary_searh.GetResult() == 1
+def GallopingSearch(ary_sorted_ascending : list[int], search_value : int) -> bool:
+    ''' Performs search with O(log(i)) complexity. '''
+    if len(ary_sorted_ascending) < 1:
+        return False
+    i : int = 1
+    current_index : int = 0
+    while ary_sorted_ascending[current_index] < search_value:
+        i += 1
+        current_index = pow(2, i) - 2
+        if current_index >= len(ary_sorted_ascending):
+            current_index = len(ary_sorted_ascending) - 1
+            i -= 1
+            break
+    if ary_sorted_ascending[current_index] == search_value:
+        return True
+    binary_searh : BinarySearch = BinarySearch(ary_sorted_ascending)
+    binary_searh.Left = pow(2, i - 1) - 1
+    binary_searh.Right = current_index
+    while binary_searh.GetResult() == 0:
+        binary_searh.Step(search_value)
+    return binary_searh.GetResult() == 1
 
 
 
