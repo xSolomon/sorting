@@ -23,11 +23,15 @@ class BinarySearch():
                 self._search_result = 1
                 return
             case -1:
-                self.Right = middle_element_index - 1
+                self.Right = max(middle_element_index - 1, 0)
             case 1:
-                self.Left = middle_element_index + 1
-        if self.Right < self.Left:
-            self._search_result = -1
+                self.Left = min(middle_element_index + 1, len(self._values) - 1)
+        if self.Left + 1 < self.Right:
+            return
+        if self._values[self.Left] == N or self._values[self.Right] == N:
+            self._search_result = 1
+            return
+        self._search_result = -1
 
     def GetResult(self) -> int:
         ''' Returns currect search status, where:
@@ -47,6 +51,7 @@ class BinarySearch():
             current_index = pow(2, i) - 2
             if current_index >= len(ary_sorted_ascending):
                 current_index = len(ary_sorted_ascending) - 1
+                i -= 1
                 break
         if ary_sorted_ascending[current_index] == search_value:
             return True

@@ -23,9 +23,9 @@ class BinarySearch():
                 self._search_result = 1
                 return
             case -1:
-                self.Right = middle_element_index - 1
+                self.Right = max(middle_element_index - 1, 0)
             case 1:
-                self.Left = middle_element_index + 1
+                self.Left = min(middle_element_index + 1, len(self._values) - 1)
         if self.Left + 1 < self.Right:
             return
         if self._values[self.Left] == N or self._values[self.Right] == N:

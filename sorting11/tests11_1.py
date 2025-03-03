@@ -75,11 +75,21 @@ class BinarySearchTests(unittest.TestCase):
             search.Step(3)
             self.assertEqual(search.GetResult(), -1)
             self.assertEqual(search.Left, 0)
-            self.assertEqual(search.Right, -1)
+            self.assertEqual(search.Right, 0)
             search.Step(3)
             self.assertEqual(search.GetResult(), -1)
             self.assertEqual(search.Left, 0)
-            self.assertEqual(search.Right, -1)
+            self.assertEqual(search.Right, 0)
+        search = self.prepare_binary_search_on([5])
+        with self.subTest():
+            search.Step(7)
+            self.assertEqual(search.GetResult(), -1)
+            self.assertEqual(search.Left, 0)
+            self.assertEqual(search.Right, 0)
+            search.Step(7)
+            self.assertEqual(search.GetResult(), -1)
+            self.assertEqual(search.Left, 0)
+            self.assertEqual(search.Right, 0)
 
     def test_search_on_two_element_ary(self) -> None:
         ''' Each number should take expected number of steps. '''
